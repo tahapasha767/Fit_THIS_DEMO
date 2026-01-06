@@ -27,6 +27,31 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Introducing a loader button element */}
+        <button
+          className="loader-button"
+          style={{
+            /* Basic styling for visibility and appearance */
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            padding: '12px 24px',
+            backgroundColor: '#0070f3',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '1rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+            transition: 'background-color 0.3s ease',
+            zIndex: 1000,
+          }}
+          // You might add an onClick handler for actual loading logic here
+          // onClick={() => console.log('Loader button clicked!')}
+        >
+          Load More
+        </button>
         {children}
       </body>
     </html>

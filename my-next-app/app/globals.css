@@ -24,3 +24,121 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Global styles for a loader button component */
+.loader-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px; /* Ensures button has a minimum width when content is hidden */
+  min-height: 40px; /* Ensures button has a minimum height */
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem; /* rounded-md */
+  font-size: 1rem; /* text-base */
+  font-weight: 500; /* font-medium */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+  background-color: #3b82f6; /* blue-500 */
+  color: #ffffff; /* text-white */
+  overflow: hidden; /* Important for positioning the spinner correctly */
+}
+
+.loader-button:hover:not(:disabled) {
+  background-color: #2563eb; /* blue-600 */
+}
+
+.loader-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Content inside the button */
+.loader-button .button-content {
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+/* Spinner container */
+.loader-button .loader-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Hidden by default */
+  pointer-events: none; /* Ensure spinner doesn't block clicks if visible unexpectedly */
+}
+
+/* When the button is in a loading state */
+.loader-button.loading {
+  cursor: progress;
+  pointer-events: none; /* Prevent interaction while loading */
+}
+
+.loader-button.loading .button-content {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-button.loading .loader-spinner {
+  display: block; /* Show spinner */
+}
+
+/* Spinner visual styles */
+.loader-spinner-circle {
+  width: 1.5em; /* Size relative to button's font size */
+  height: 1.5em;
+  border: 3px solid rgba(255, 255, 255, 0.3); /* A translucent border for the 'track' */
+  border-top-color: #ffffff; /* Solid border for the 'spinner' part */
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Keyframes for the spinning animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility classes for different button states/variants */
+
+/* Secondary button variant */
+.loader-button.secondary {
+  background-color: #6b7280; /* gray-500 */
+  color: #ffffff;
+}
+.loader-button.secondary:hover:not(:disabled) {
+  background-color: #4b5563; /* gray-600 */
+}
+
+/* Outline button variant */
+.loader-button.outline {
+  background-color: transparent;
+  color: var(--foreground);
+  border-color: var(--foreground);
+}
+.loader-button.outline:hover:not(:disabled) {
+  background-color: rgba(var(--foreground-rgb), 0.1); /* A subtle hover effect */
+}
+
+/* Success button variant */
+.loader-button.success {
+  background-color: #22c55e; /* green-500 */
+  color: #ffffff;
+}
+.loader-button.success:hover:not(:disabled) {
+  background-color: #16a34a; /* green-600 */
+}
+
+/* Error button variant */
+.loader-button.error {
+  background-color: #ef4444; /* red-500 */
+  color: #ffffff;
+}
+.loader-button.error:hover:not(:disabled) {
+  background-color: #dc2626; /* red-600 */
+}
