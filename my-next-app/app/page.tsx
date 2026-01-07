@@ -58,12 +58,13 @@ export default function Home() {
           >
             Documentation
           </a>
+          {/* New loading button */}
           <button
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-zinc-700 text-zinc-50 px-5 transition-colors cursor-not-allowed dark:bg-zinc-800 dark:text-zinc-200 md:w-[158px]"
+            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-zinc-700 text-zinc-50 cursor-not-allowed md:w-[158px]"
             disabled
           >
             <svg
-              className="h-4 w-4 animate-spin text-zinc-50 dark:text-zinc-200"
+              className="animate-spin h-5 w-5 text-current"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
